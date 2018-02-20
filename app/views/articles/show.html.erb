@@ -1,0 +1,26 @@
+<center><p> 
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+<br>
+
+
+<h2><font color="red">Comments</font></h2>
+
+<%= render @article.comments %>
+<% if user_signed_in? -%>
+<div>Signed in as... <%= current_user.username %></div>
+<%= render 'comments/form' %>
+<%= link_to "logout Command", destroy_user_session_path, :method => :delete %>
+<% else -%>
+<%= link_to "login to command", new_user_session_path %>
+<% end %>
+<br><br>
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+</center>

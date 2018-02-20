@@ -1,0 +1,17 @@
+<center>
+<%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
+
+  <table cellpadding="5" cellspacing="5">
+   <tr><td> <%= form.label :commenter %></td>
+  <td> <%= form.text_field :commenter %></td>
+  </tr>
+ <tr>
+  <td>  <%= form.label :body %><br></td>
+    <td><%= form.text_area :body %></td>
+  
+  </table>
+    <%= form.submit data: { "disable-with": "Saving..." } %>
+  </p>
+<% end %>
+</center>
+
